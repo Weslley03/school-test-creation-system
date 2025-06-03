@@ -8,7 +8,7 @@ public class User {
   private String name;
   private String email;
   private String password;
-  private Boolean isAdm; 
+  private boolean isAdm; 
   private Date createdAt;
   private Date updatedAt;
 
@@ -41,10 +41,10 @@ public class User {
     this.password = password;
   }
 
-  public Boolean getIsAdm() {
+  public boolean isAdm() {
     return isAdm;
   }
-  public void setIsAdm(Boolean isAdm) {
+  public void setIsAdm(boolean isAdm) {
     this.isAdm = isAdm;
   }
 

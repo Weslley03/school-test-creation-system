@@ -12,7 +12,7 @@ public class Question {
   private Date createdAt;
   private Date updatedAt;
   private int createdByIdUser;
-  private Boolean isActive;
+  private boolean isActive;
 
   public int getId() {
     return id;
@@ -70,10 +70,10 @@ public class Question {
     this.createdByIdUser = createdByIdUser;
   }
 
-  public Boolean getIsActive() {
+  public boolean isActive() {
     return isActive;
   }
-  public void setIsActive(Boolean isActive) {
+  public void setIsActive(boolean isActive) {
     this.isActive = isActive;
   }
 }

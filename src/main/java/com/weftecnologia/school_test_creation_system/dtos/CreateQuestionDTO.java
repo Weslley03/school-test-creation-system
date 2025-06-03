@@ -10,12 +10,12 @@ public class CreateQuestionDTO {
   private TypeQuestion typeQuestion;
   private int subjectId;
   private int createdByIdUser;
-  private Boolean isActive;
+  private boolean isActive;
 
   public CreateQuestionDTO(
     String htmlQuestion, DifficultyLevel difficultyLevel, 
     TypeQuestion typeQuestion, int subjectId, 
-    int createdByIdUser, Boolean isActive
+    int createdByIdUser, boolean isActive
     ) {
     this.htmlQuestion = htmlQuestion;
     this.difficultyLevel = difficultyLevel;
@@ -65,11 +65,11 @@ public class CreateQuestionDTO {
     this.createdByIdUser = createdByIdUser;
   }
 
-  public Boolean getIsActive() {
+  public boolean isActive() {
     return isActive;
   }
 
-  public void setIsActive(Boolean isActive) {
+  public void setIsActive(boolean isActive) {
     this.isActive = isActive;
   }
 }
