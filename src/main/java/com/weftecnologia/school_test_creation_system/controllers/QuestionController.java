@@ -2,7 +2,6 @@ package com.weftecnologia.school_test_creation_system.controllers;
 
 import java.io.IOException;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,25 +25,14 @@ public class QuestionController {
   }
 
   @PostMapping("/create")
-  public ResponseEntity<String> create(@RequestBody CreateQuestionDTO dto) {
-    try {
-      questionService.saveQuestion(dto);
-      return ResponseEntity.ok("operation successfully."); 
-    } catch (IOException err) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .body("Failed to question create, error: " + err.getMessage() + err);
-    }
+  public ResponseEntity<String> create(@RequestBody CreateQuestionDTO dto) throws IOException {
+    questionService.saveQuestion(dto);
+    return ResponseEntity.ok("operation successfully."); 
   }
 
   @GetMapping("{id}")
-  public ResponseEntity<Question> finById(@PathVariable long id) {
-    try {
-      Question question = questionService.findById(id);
-      if (question == null) ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-      return ResponseEntity.ok(question); 
-    } catch (IOException err) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .body(null);
-    }
+  public ResponseEntity<Question> finById(@PathVariable long id) throws IOException {
+    Question question = questionService.findById(id);
+    return ResponseEntity.ok(question); 
   }
 }
