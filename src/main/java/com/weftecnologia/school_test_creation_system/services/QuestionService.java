@@ -32,7 +32,7 @@ public class QuestionService {
     question.setTypeQuestion(dto.getTypeQuestion());
     question.setSubjectId(dto.getSubjectId());
     question.setCreatedByIdUser(dto.getCreatedByIdUser());
-    question.setIsActive(dto.getIsActive());
+    question.setIsActive(dto.isActive());
 
     Date now = new Date();
     question.setCreatedAt(now);
