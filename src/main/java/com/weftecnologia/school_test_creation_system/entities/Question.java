@@ -2,21 +2,25 @@ package com.weftecnologia.school_test_creation_system.entities;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Question {
-  
+
   private int id;
   private String htmlQuestion;
-  private DifficultyLevel difficultyLevel; 
+  private DifficultyLevel difficultyLevel;
   private TypeQuestion typeQuestion;
   private int subjectId;
   private Date createdAt;
   private Date updatedAt;
   private int createdByIdUser;
+  @JsonProperty("active")
   private boolean isActive;
 
   public int getId() {
     return id;
   }
+
   public void setId(int id) {
     this.id = id;
   }
@@ -24,6 +28,7 @@ public class Question {
   public String getHtmlQuestion() {
     return htmlQuestion;
   }
+
   public void setHtmlQuestion(String htmlQuestion) {
     this.htmlQuestion = htmlQuestion;
   }
@@ -31,6 +36,7 @@ public class Question {
   public DifficultyLevel getDifficultyLevel() {
     return difficultyLevel;
   }
+
   public void setDifficultyLevel(DifficultyLevel difficultyLevel) {
     this.difficultyLevel = difficultyLevel;
   }
@@ -38,6 +44,7 @@ public class Question {
   public TypeQuestion getTypeQuestion() {
     return typeQuestion;
   }
+
   public void setTypeQuestion(TypeQuestion typeQuestion) {
     this.typeQuestion = typeQuestion;
   }
@@ -45,6 +52,7 @@ public class Question {
   public int getSubjectId() {
     return subjectId;
   }
+
   public void setSubjectId(int subjectId) {
     this.subjectId = subjectId;
   }
@@ -52,6 +60,7 @@ public class Question {
   public Date getCreatedAt() {
     return createdAt;
   }
+
   public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
@@ -59,6 +68,7 @@ public class Question {
   public Date getUpdatedAt() {
     return updatedAt;
   }
+
   public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -66,6 +76,7 @@ public class Question {
   public int getCreatedByIdUser() {
     return createdByIdUser;
   }
+
   public void setCreatedByIdUser(int createdByIdUser) {
     this.createdByIdUser = createdByIdUser;
   }
@@ -73,6 +84,7 @@ public class Question {
   public boolean isActive() {
     return isActive;
   }
+
   public void setIsActive(boolean isActive) {
     this.isActive = isActive;
   }

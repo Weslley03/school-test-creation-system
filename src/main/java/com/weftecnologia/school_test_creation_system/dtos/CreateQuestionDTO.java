@@ -4,19 +4,18 @@ import com.weftecnologia.school_test_creation_system.entities.DifficultyLevel;
 import com.weftecnologia.school_test_creation_system.entities.TypeQuestion;
 
 public class CreateQuestionDTO {
-  
+
   private String htmlQuestion;
-	private DifficultyLevel difficultyLevel; 
+  private DifficultyLevel difficultyLevel;
   private TypeQuestion typeQuestion;
   private int subjectId;
   private int createdByIdUser;
   private boolean isActive;
 
   public CreateQuestionDTO(
-    String htmlQuestion, DifficultyLevel difficultyLevel, 
-    TypeQuestion typeQuestion, int subjectId, 
-    int createdByIdUser, boolean isActive
-    ) {
+      String htmlQuestion, DifficultyLevel difficultyLevel,
+      TypeQuestion typeQuestion, int subjectId,
+      int createdByIdUser, boolean isActive) {
     this.htmlQuestion = htmlQuestion;
     this.difficultyLevel = difficultyLevel;
     this.typeQuestion = typeQuestion;

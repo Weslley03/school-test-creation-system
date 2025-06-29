@@ -3,28 +3,16 @@ package com.weftecnologia.school_test_creation_system.dtos;
 import java.util.List;
 
 public class CreateProvaDTO {
-  
-  private String fileName;
-	private List<Integer> selectedQuestions;
-	private boolean showSorce;
-	private boolean showSubject;
-	private boolean showTypeOfTeaching;
-  private boolean showType;
-	private boolean showDifficultyLevel;
 
-  public CreateProvaDTO(
-    String fileName, List<Integer> selectedQuestions,
-    boolean showSorce, boolean showSubject, 
-    boolean showTypeOfTeaching, boolean showType,
-    boolean showDifficultyLevel
-  ) {
-    this.fileName = fileName;
-    this.selectedQuestions = selectedQuestions;
-    this.showSorce = showSorce;
-    this.showSubject = showSubject;
-    this.showTypeOfTeaching = showTypeOfTeaching;
-    this.showType = showType;
-    this.showDifficultyLevel = showDifficultyLevel;
+  private String fileName;
+  private List<Integer> selectedQuestions;
+  private boolean showSource;
+  private boolean showSubject;
+  private boolean showTypeOfTeaching;
+  private boolean showType;
+  private boolean showDifficultyLevel;
+
+  public CreateProvaDTO() {
   }
 
   public String getFileName() {
@@ -43,12 +31,12 @@ public class CreateProvaDTO {
     this.selectedQuestions = selectedQuestions;
   }
 
-  public boolean isShowSorce() {
-    return showSorce;
+  public boolean isShowSource() {
+    return showSource;
   }
 
-  public void setShowSorce(boolean showSorce) {
-    this.showSorce = showSorce;
+  public void setShowSource(boolean showSource) {
+    this.showSource = showSource;
   }
 
   public boolean isShowSubject() {
