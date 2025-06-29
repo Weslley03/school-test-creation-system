@@ -9,14 +9,21 @@ import org.springframework.stereotype.Service;
 
 import com.weftecnologia.school_test_creation_system.dtos.CreateProvaDTO;
 import com.weftecnologia.school_test_creation_system.entities.Question;
+import com.weftecnologia.school_test_creation_system.entities.Subject;
 
 @Service
 public class ProvaService {
 
   private final QuestionService questionService;
+  private final SubjectService subjectService;
 
-  public ProvaService(QuestionService questionService) {
+  public ProvaService(QuestionService questionService, SubjectService subjectService) {
     this.questionService = questionService;
+    this.subjectService = subjectService;
+  }
+
+  private Subject getSubject(long subjectId) throws IOException {
+    return this.subjectService.findById(subjectId);
   }
 
   public byte[] createProva(CreateProvaDTO dto) throws IOException {
@@ -30,7 +37,7 @@ public class ProvaService {
 
     html.append("<!DOCTYPE html><html lang=\"pt-BR\"><head>");
     html.append("<meta charset=\"UTF-8\" /><title>").append(dto.getFileName()).append("</title>");
-    // html.append("<style> /* ... colar seu CSS aqui ... */ </style>");
+    html.append("<style> .questao { margin-bottom: 20px; } </style>");
     html.append("</head><body>");
     html.append("<h1>").append(dto.getFileName()).append("</h1>");
 
@@ -38,16 +45,19 @@ public class ProvaService {
     for (Question q : questions) {
       html.append("<div class='questao'><div class='meta'>");
 
-      // if (dto.isShowSubject())
-      // html.append("<strong>").append(getSubject(q.getSubjectId())).append("</strong>");
+      List<String> metaParts = new ArrayList<>();
+      if (dto.isShowSubject())
+        metaParts.add(getSubject(q.getSubjectId()).getName());
       if (dto.isShowDifficultyLevel())
-        html.append("<strong>").append(q.getDifficultyLevel().name()).append("</strong> ");
+        metaParts.add(q.getDifficultyLevel().getLabel());
       if (dto.isShowType())
-        html.append("<strong>").append(q.getTypeQuestion().name()).append("</strong>");
+        metaParts.add(q.getTypeQuestion().getLabel());
+
+      html.append("<strong>").append(String.join(" - ", metaParts)).append("</strong>");
 
       html.append("</div><div class='enunciado'>");
-      html.append("<strong>").append(number++).append(")</strong>");
-      html.append("<div>").append(q.getHtmlQuestion()).append("</div>");
+      html.append("<div>").append("<strong>").append(number++).append(") ").append("</strong>")
+          .append(q.getHtmlQuestion()).append("</div>");
       html.append("</div></div>");
     }
 

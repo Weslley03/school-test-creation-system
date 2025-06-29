@@ -20,6 +20,7 @@ public class SubjectService {
 
     Subject subject = new Subject();
     subject.setId(id);
+    subject.setName(dto.getName());
     subject.setTypeOfTeaching(dto.getTypeOfTeaching());
     subject.setCreatedByIdUser(dto.getCreatedByIdUser());
 
@@ -28,5 +29,9 @@ public class SubjectService {
     subject.setUpdatedAt(now);
 
     subjectDAO.save(subject);
+  }
+
+  public Subject findById(long id) throws IOException {
+    return subjectDAO.findById(id);
   }
 }

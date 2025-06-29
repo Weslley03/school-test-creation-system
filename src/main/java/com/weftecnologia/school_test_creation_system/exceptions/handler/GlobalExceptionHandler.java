@@ -9,15 +9,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.weftecnologia.school_test_creation_system.exceptions.QuestionNotFoundException;
+import com.weftecnologia.school_test_creation_system.exceptions.FileNotFoundException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
   private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-  @ExceptionHandler(QuestionNotFoundException.class)
-  public ResponseEntity<String> handleQuestionNotFound(QuestionNotFoundException ex) {
+  @ExceptionHandler(FileNotFoundException.class)
+  public ResponseEntity<String> handleQuestionNotFound(FileNotFoundException ex) {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
   }
 

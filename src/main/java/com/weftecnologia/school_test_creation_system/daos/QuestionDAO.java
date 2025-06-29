@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.weftecnologia.school_test_creation_system.entities.Question;
-import com.weftecnologia.school_test_creation_system.exceptions.QuestionNotFoundException;
+import com.weftecnologia.school_test_creation_system.exceptions.FileNotFoundException;
 
 public class QuestionDAO {
 
@@ -31,7 +31,7 @@ public class QuestionDAO {
     File file = new File(BASE_FOLDER + fileName);
 
     if (!file.exists())
-      throw new QuestionNotFoundException("arquivo não encontrado: " + file.getPath());
+      throw new FileNotFoundException("arquivo não encontrado: " + file.getPath());
 
     return objectMapper.readValue(file, Question.class);
   }
