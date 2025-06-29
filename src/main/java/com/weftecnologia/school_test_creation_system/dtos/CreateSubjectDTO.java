@@ -1,22 +1,14 @@
-package com.weftecnologia.school_test_creation_system.entities;
+package com.weftecnologia.school_test_creation_system.dtos;
 
-import java.util.Date;
+import com.weftecnologia.school_test_creation_system.entities.TypeOfTeaching;
 
-public class Subject {
+public class CreateSubjectDTO {
 
-  private int id;
   private String name;
   private TypeOfTeaching typeOfTeaching;
-  private Date createdAt;
-  private Date updatedAt;
   private int createdByIdUser;
 
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
+  public CreateSubjectDTO() {
   }
 
   public String getName() {
@@ -33,22 +25,6 @@ public class Subject {
 
   public void setTypeOfTeaching(TypeOfTeaching typeOfTeaching) {
     this.typeOfTeaching = typeOfTeaching;
-  }
-
-  public Date getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public Date getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(Date updatedAt) {
-    this.updatedAt = updatedAt;
   }
 
   public int getCreatedByIdUser() {

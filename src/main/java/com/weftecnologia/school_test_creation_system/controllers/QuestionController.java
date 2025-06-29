@@ -15,9 +15,9 @@ import com.weftecnologia.school_test_creation_system.entities.Question;
 import com.weftecnologia.school_test_creation_system.services.QuestionService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/question")
 public class QuestionController {
-  
+
   private final QuestionService questionService;
 
   public QuestionController(QuestionService questionService) {
@@ -27,12 +27,12 @@ public class QuestionController {
   @PostMapping("/create")
   public ResponseEntity<String> create(@RequestBody CreateQuestionDTO dto) throws IOException {
     questionService.saveQuestion(dto);
-    return ResponseEntity.ok("operation successfully."); 
+    return ResponseEntity.ok("operation successfully.");
   }
 
   @GetMapping("{id}")
   public ResponseEntity<Question> finById(@PathVariable long id) throws IOException {
     Question question = questionService.findById(id);
-    return ResponseEntity.ok(question); 
+    return ResponseEntity.ok(question);
   }
 }

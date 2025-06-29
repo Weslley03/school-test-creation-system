@@ -3,10 +3,10 @@ package com.weftecnologia.school_test_creation_system.services;
 import com.weftecnologia.school_test_creation_system.daos.QuestionDAO;
 import com.weftecnologia.school_test_creation_system.dtos.CreateQuestionDTO;
 import com.weftecnologia.school_test_creation_system.entities.Question;
+import com.weftecnologia.school_test_creation_system.util.IdGeneratorUtil;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
@@ -14,16 +14,9 @@ import org.springframework.stereotype.Service;
 public class QuestionService {
 
   private final QuestionDAO questionDAO = new QuestionDAO();
-  private final Random random = new Random();
-
-  private int generateId() {
-    long timeStamp = System.currentTimeMillis();
-    int randomSuffix = random.nextInt(1000);
-    return (int)(timeStamp & Integer.MAX_VALUE) + randomSuffix;
-  }
 
   public void saveQuestion(CreateQuestionDTO dto) throws IOException {
-    int id = this.generateId();
+    int id = IdGeneratorUtil.generateId();
 
     Question question = new Question();
     question.setId(id);

@@ -13,7 +13,7 @@ import com.weftecnologia.school_test_creation_system.exceptions.QuestionNotFound
 public class QuestionDAO {
 
   private static final String BASE_FOLDER = "data/questions/";
-  
+
   private ObjectMapper objectMapper = new ObjectMapper();
 
   public void save(Question question) throws IOException {
@@ -26,11 +26,12 @@ public class QuestionDAO {
     System.out.println("question saved successfully." + filePath);
   }
 
-  public Question findById(long id)  throws IOException {
+  public Question findById(long id) throws IOException {
     String fileName = "question_" + id + ".json";
     File file = new File(BASE_FOLDER + fileName);
 
-    if(!file.exists()) throw new QuestionNotFoundException("arquivo não encontrado: " + file.getPath());
+    if (!file.exists())
+      throw new QuestionNotFoundException("arquivo não encontrado: " + file.getPath());
 
     return objectMapper.readValue(file, Question.class);
   }
